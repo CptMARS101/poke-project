@@ -19,7 +19,15 @@ html {
     width: 900px;
   }
 
+@font-face {
+    font-family: digital-7-font;
+    src: url(./digital-7.ttf);
+}
+
   #dex-list {
+    font-family: digital-7-font;
+    font-size: xx-large;
+    text-align: center;
     margin: auto;
     margin-top: 140px;
     width: 400px;

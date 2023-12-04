@@ -6,7 +6,7 @@ fetch('http://localhost:3000/pokemon')
     mons.forEach(mon => {
         const monListElement = document.createElement('li');
         const monName = mon.name;
-        monListElement.textContent = `${monName}`
+        monListElement.textContent = `${monName}`.toUpperCase();
         monList.appendChild(monListElement);
         //console.log(monIndex)
         //console.log(mon);
