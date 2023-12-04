@@ -4,3 +4,23 @@ html {
     background-size: 50%;
     background-position-x: center;
   }
+
+  body {
+    margin: 5px;
+    border: 5px;
+    padding: 0%;
+    height: 850px
+  }
+
+  #team-span {
+    text-align: center;
+    background-color: aqua;
+  }
+
+  #dex-list {
+    text-align: center;
+    width: 400px;
+    height: 500px;
+    background-color: chartreuse;
+    overflow: scroll;
+  }
