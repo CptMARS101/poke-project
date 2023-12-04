@@ -1,8 +1,8 @@
 html {
-    background-image: url("https://live.staticflickr.com/65535/49058055381_5ac611f040_c.jpg");
-    background-repeat: no-repeat;
-    background-size: 50%;
-    background-position-x: center;
+    background-image: url("https://live.staticflickr.com/65535/49058055381_5ac611f040_c.jpg"), url("https://i.pinimg.com/originals/f4/59/98/f459980b6a50cbfb897a7299ca86dab0.gif");
+    background-repeat: no-repeat, repeat;
+    background-size: 50%, 40%;
+    background-position-x: center, center;
   }
 
   body {
@@ -18,9 +18,11 @@ html {
   }
 
   #dex-list {
-    text-align: center;
+    margin: auto;
+    margin-top: 200px;
     width: 400px;
     height: 500px;
+    border-radius: 25px;
     background-color: chartreuse;
     overflow: scroll;
   }
