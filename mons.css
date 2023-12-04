@@ -6,22 +6,26 @@ html {
   }
 
   body {
-    margin: 5px;
-    border: 5px;
-    padding: 0%;
+    margin: auto;
+    border: 2px;
+    padding: 0px;
     height: 850px
   }
 
-  #team-span {
+  #team {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: auto;
     text-align: center;
     background-color: aqua;
+    height: 80px;
+    width: 900px;
   }
 
   #dex-list {
     margin: auto;
-    margin-top: 200px;
+    margin-top: 140px;
     width: 400px;
-    height: 500px;
+    height: 350px;
     border-radius: 25px;
     background-color: chartreuse;
     overflow: scroll;
