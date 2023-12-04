@@ -1,15 +1,12 @@
-let monArray =[]
-fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+fetch('http://localhost:3000/pokemon')
 .then(res => res.json())
 .then(mons =>  {
-    monArray = mons.results;
-    //console.log(monArray);
+    console.log(mons)
     const monList = document.querySelector('#dex-list');
-    monArray.forEach(mon => {
+    mons.forEach(mon => {
         const monListElement = document.createElement('li');
-        const monName = monArray.name;
-        const monIndex = monArray.index;
-        monListElement.textContent = `${monIndex} - ${monName}`
+        const monName = mon.name;
+        monListElement.textContent = `${monName}`
         monList.appendChild(monListElement);
         //console.log(monIndex)
         //console.log(mon);
