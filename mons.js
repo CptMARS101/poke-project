@@ -68,8 +68,6 @@ const renderDisplay = mon => {
         console.log(data)
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default
-        //monDisplay.type.textContent = data.
-        //wonky when more than 1 type ... gonna dig this one a bit!
     })
 }
 
@@ -85,3 +83,27 @@ const renderStats = mon => {
         statDisplay.sp.textContent = `SPEED:` + data.stats[5].base_stat;
     })
 }
+
+const searchForm = document.querySelector('#poke-form');
+//Form Submission
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    //Getting Form Input
+    let input = document.querySelector('#poke-search').value;
+    //Searching the pkmn array for a name that === input
+    let found = pkmn.find(pkmn => pkmn.name === input);
+    console.log(found)
+    fetch(found.url)
+    .then(res => res.json())
+    .then(foundUrl => {
+        monDisplay.name.textContent = found.name.toUpperCase();
+        monDisplay.img.src = foundUrl.sprites.front_default;
+        statDisplay.hp.textContent = `HP:` + foundUrl.stats[0].base_stat;
+        statDisplay.attk.textContent = `ATTACK:` + foundUrl.stats[1].base_stat;
+        statDisplay.def.textContent = `DEFENSE:` + foundUrl.stats[2].base_stat;
+        statDisplay.sa.textContent = `Sp ATTACK:` + foundUrl.stats[3].base_stat;
+        statDisplay.sd.textContent = `Sp DEFENSE:` + foundUrl.stats[4].base_stat;
+        statDisplay.sp.textContent = `SPEED:` + foundUrl.stats[5].base_stat;
+    })
+    console.log(found)
+})
