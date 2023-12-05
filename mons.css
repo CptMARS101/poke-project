@@ -57,18 +57,38 @@ html {
 
   #stat-display {
     width: 300px;
-    height: 600px;
+    height: 400px;
     text-align: center;
     vertical-align: text-top;
     font-family: digital-7-font;
     font-size: larger;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
   }
 
   #moves-list {
     text-align: center;
-    width: 300px;
+    width: 250px;
+    overflow: scroll;
   }
 
   #center-td {
     text-align: center;
+  }
+
+  #moves-div {
+    width: 250px;
+    height: 500px;
+    font-family: digital-7-font;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: scroll;
+  }
+
+  #right-td {
+    padding: 0%;
   }

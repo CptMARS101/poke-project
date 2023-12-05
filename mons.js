@@ -16,7 +16,8 @@ const statDisplay = {
     sp: document.querySelector('#sp')
 }
 
-//const movesDisplay = []
+const movesList = document.querySelector('#moves-list');
+const statDiv = document.querySelector('#stat-display');
 
 fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 .then(res => res.json())
@@ -36,8 +37,15 @@ const dexLine = mon => {
     monListElement.textContent = `${mon.name}`.toUpperCase();
     //on click of the monListElement, the mon details are displayed 
     monListElement.addEventListener("click", (e) => {
-        renderDisplay(mon)
+        renderDisplay(mon);
         renderStats(mon);
+        renderMoves(mon);
+    })
+    monListElement.addEventListener("mouseover", () => {
+        monListElement.style.backgroundColor = '#61834A';
+    })
+    monListElement.addEventListener("mouseout", () => {
+        monListElement.style.backgroundColor = 'chartreuse';
     })
     monList.appendChild(monListElement);
 }
@@ -75,12 +83,29 @@ const renderStats = mon => {
     fetch(mon.url)
     .then(res => res.json())
     .then(data => {
+        console.log(data.moves);
         statDisplay.hp.textContent = `HP:` + data.stats[0].base_stat;
         statDisplay.attk.textContent = `ATTACK:` + data.stats[1].base_stat;
         statDisplay.def.textContent = `DEFENSE:` + data.stats[2].base_stat;
         statDisplay.sa.textContent = `Sp ATTACK:` + data.stats[3].base_stat;
         statDisplay.sd.textContent = `Sp DEFENSE:` + data.stats[4].base_stat;
-        statDisplay.sp.textContent = `SPEED:` + data.stats[5].base_stat;
+        statDisplay.sp.textContent = `SPEED:` + data.stats[5].base_stat;  
+    })
+        statDiv.style.backgroundColor = 'chartreuse';
+        movesList.style.backgroundColor= 'chartreuse';
+}
+
+const renderMoves = mon => {
+    fetch(mon.url)
+    .then(res => res.json())
+    .then(data => {
+        data.moves.forEach(moveData => {
+            console.log(moveData);
+            movesList.style.backgroundColor= 'chartreuse';
+            const moveLi = document.createElement('li');
+            moveLi.textContent = moveData.move.name;
+            movesList.appendChild(moveLi);
+        })
     })
 }
 
@@ -96,14 +121,10 @@ searchForm.addEventListener('submit', (e) => {
     fetch(found.url)
     .then(res => res.json())
     .then(foundUrl => {
-        monDisplay.name.textContent = found.name.toUpperCase();
-        monDisplay.img.src = foundUrl.sprites.front_default;
-        statDisplay.hp.textContent = `HP:` + foundUrl.stats[0].base_stat;
-        statDisplay.attk.textContent = `ATTACK:` + foundUrl.stats[1].base_stat;
-        statDisplay.def.textContent = `DEFENSE:` + foundUrl.stats[2].base_stat;
-        statDisplay.sa.textContent = `Sp ATTACK:` + foundUrl.stats[3].base_stat;
-        statDisplay.sd.textContent = `Sp DEFENSE:` + foundUrl.stats[4].base_stat;
-        statDisplay.sp.textContent = `SPEED:` + foundUrl.stats[5].base_stat;
+        //render display & stats with found url info
+        renderDisplay(foundUrl);
+        renderStats(foundUrl);
+        renderMoves(foundUrl);
     })
     console.log(found)
 })
