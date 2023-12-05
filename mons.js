@@ -3,15 +3,17 @@ const monList = document.querySelector('#dex-list')
 //an object of all the elements of the monDisplay, for quick reference in the 'renderDisplay' function
 const monDisplay = {
     name: document.querySelector('#name'),
-    img: document.querySelector('#image')
+    img: document.querySelector('#image'),
+    type1: document.querySelector('#type1'),
+    type2: document.querySelector('#type2')
   };
 const statDisplay = {
     hp: document.querySelector('#hp'),
-    attack: document.querySelector('#attk'),
-    defense: document.querySelector('#def'),
-    sp_attack: document.querySelector('#sa'),
-    sp_defense: document.querySelector('#sd'),
-    speed: document.querySelector('#sp')
+    attk: document.querySelector('#attk'),
+    def: document.querySelector('#def'),
+    sa: document.querySelector('#sa'),
+    sd: document.querySelector('#sd'),
+    sp: document.querySelector('#sp')
 }
 
 //const movesDisplay = []
@@ -35,6 +37,7 @@ const dexLine = mon => {
     //on click of the monListElement, the mon details are displayed 
     monListElement.addEventListener("click", (e) => {
         renderDisplay(mon)
+        renderStats(mon);
     })
     monList.appendChild(monListElement);
 }
@@ -67,5 +70,18 @@ const renderDisplay = mon => {
         monDisplay.img.src = data.sprites.front_default
         //monDisplay.type.textContent = data.
         //wonky when more than 1 type ... gonna dig this one a bit!
+    })
+}
+
+const renderStats = mon => {
+    fetch(mon.url)
+    .then(res => res.json())
+    .then(data => {
+        statDisplay.hp.textContent = `HP:` + data.stats[0].base_stat;
+        statDisplay.attk.textContent = `ATTACK:` + data.stats[1].base_stat;
+        statDisplay.def.textContent = `DEFENSE:` + data.stats[2].base_stat;
+        statDisplay.sa.textContent = `Sp ATTACK:` + data.stats[3].base_stat;
+        statDisplay.sd.textContent = `Sp DEFENSE:` + data.stats[4].base_stat;
+        statDisplay.sp.textContent = `SPEED:` + data.stats[5].base_stat;
     })
 }
