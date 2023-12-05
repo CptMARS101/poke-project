@@ -7,13 +7,13 @@ const monDisplay = {
     type: document.querySelector('#type')
   };
 
-fetch('http://localhost:3000/pokemon')
+fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 .then(res => res.json())
 .then(mons =>  {
     //mons just exists inside of fetch request. saving mons data to pokemon array for global access. 
     //can be editted/worked with more easily
-    pokemons = mons
-
+    //pokemons = mons
+    console.log(mons.results);
     refreshDex(pokemons)
 })
 
