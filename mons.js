@@ -1,4 +1,4 @@
-let pokemons = []
+let pkmn = []
 const monList = document.querySelector('#dex-list')
 //an object of all the elements of the monDisplay, for quick reference in the 'renderDisplay' function
 const monDisplay = {
@@ -14,7 +14,8 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     //can be editted/worked with more easily
     //pokemons = mons
     console.log(mons.results);
-    refreshDex(pokemons)
+    pkmn = mons.results;
+    refreshDex(pkmn)
 })
 
 //this function creates a line for a << given >> pokemon in the dex-list
@@ -35,7 +36,7 @@ const refreshDex = () => {
     //re-populates the monList with fresh dexLines
     //this looks at the pokemon array (which we want to be easily edittable), 
     //and makes a monList element only for those mons 
-    pokemons.forEach(mon => dexLine(mon))
+    pkmn.forEach(mon => dexLine(mon))
 }
 
 //when parentElement [monList] has any children [monListElement], remove children from the parentElement
