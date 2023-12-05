@@ -53,7 +53,7 @@ const renderDisplay = mon => {
     .then(res => res.json())
     .then(data => {
         console.log(data)
-        monDisplay.name.textContent = data.name
+        monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default
         //monDisplay.type.textContent = data.
         //wonky when more than 1 type ... gonna dig this one a bit!
