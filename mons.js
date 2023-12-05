@@ -37,6 +37,7 @@ const dexLine = mon => {
     monListElement.textContent = `${mon.name}`.toUpperCase();
     //on click of the monListElement, the mon details are displayed 
     monListElement.addEventListener("click", (e) => {
+        movesList.innerHTML = '';
         renderDisplay(mon);
         renderStats(mon);
         renderMoves(mon);
@@ -70,6 +71,7 @@ function removeAllChildren(parentElement) {
 //function that renders display details of the mon that was clicked on from the dex-list
 //does so by populating the monDisplay object above 
 const renderDisplay = mon => {
+    console.log(mon)
     fetch(mon.url)
     .then(res => res.json())
     .then(data => {
@@ -117,14 +119,8 @@ searchForm.addEventListener('submit', (e) => {
     let input = document.querySelector('#poke-search').value;
     //Searching the pkmn array for a name that === input
     let found = pkmn.find(pkmn => pkmn.name === input);
-    console.log(found)
-    fetch(found.url)
-    .then(res => res.json())
-    .then(foundUrl => {
-        //render display & stats with found url info
-        renderDisplay(foundUrl);
-        renderStats(foundUrl);
-        renderMoves(foundUrl);
+        movesList.innerHTML = '';
+         renderDisplay(found);
+         renderStats(found);
+         renderMoves(found);
     })
-    console.log(found)
-})

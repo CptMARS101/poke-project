@@ -61,7 +61,7 @@ html {
     text-align: center;
     vertical-align: text-top;
     font-family: digital-7-font;
-    font-size: larger;
+    font-size: x-large;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
@@ -82,6 +82,7 @@ html {
     width: 250px;
     height: 500px;
     font-family: digital-7-font;
+    font-size:x-large;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
