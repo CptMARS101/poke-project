@@ -3,9 +3,18 @@ const monList = document.querySelector('#dex-list')
 //an object of all the elements of the monDisplay, for quick reference in the 'renderDisplay' function
 const monDisplay = {
     name: document.querySelector('#name'),
-    img: document.querySelector('#image'),
-    type: document.querySelector('#type')
+    img: document.querySelector('#image')
   };
+const statDisplay = {
+    hp: document.querySelector('#hp'),
+    attack: document.querySelector('#attk'),
+    defense: document.querySelector('#def'),
+    sp_attack: document.querySelector('#sa'),
+    sp_defense: document.querySelector('#sd'),
+    speed: document.querySelector('#sp')
+}
+
+//const movesDisplay = []
 
 fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 .then(res => res.json())
@@ -16,6 +25,7 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     console.log(mons.results);
     pkmn = mons.results;
     refreshDex(pkmn)
+    renderDisplay(pkmn[0])
 })
 
 //this function creates a line for a << given >> pokemon in the dex-list
