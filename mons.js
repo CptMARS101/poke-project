@@ -105,7 +105,8 @@ const renderDisplay = mon => {
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default;
         monDisplay.type1.textContent = data.types[0].type.name
-        console.log(data.types[0].type.name)
+        monDisplay.type2.textContent = data.types[1].type.name
+        console.log(data.types)
     })
 }
 
