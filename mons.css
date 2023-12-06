@@ -12,11 +12,14 @@
 
   #team {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
     border-radius: 30px;
     margin: auto;
     text-align: center;
-    background-color: aqua;
-    height: 100px;
+    background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3loZnc3emVzaXJ6YnJqeWw4ajMxYm03YjU2dzR3azJqdDM0djJnZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JetkGHNkWrSjKeBNub/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 135px;
     width: 100%;
   }
 
@@ -114,4 +117,9 @@
 
   #right-td {
     padding: 0%;
+  }
+
+  .teamster {
+    width: 150px;
+    height: 150px;
   }
