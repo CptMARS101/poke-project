@@ -18,6 +18,8 @@ const statDisplay = {
 
 const movesList = document.querySelector('#moves-list');
 const statDiv = document.querySelector('#stat-display');
+const teamDiv = document.querySelector('#team-td');
+const cardDisplay = document.querySelector('#display');
 
 fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 .then(res => res.json())
@@ -78,9 +80,17 @@ const renderDisplay = mon => {
         console.log(data)
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default;
-        let addButton = document.createElement("button");
-        addButton.placeholder = "+";
+        const addButton = document.createElement('button');
+        addButton.id = 'add-button';
+        addButton.textContent = "+";
+        cardDisplay.appendChild(addButton);
         addButton.addEventListener("click", () => {
+            let teamCard = document.createElement('span');
+            let teamImg = document.createElement('img');
+            teamImg.src = data.sprites.front_default;
+            teamImg.id = 'team-img';
+            teamCard.appendChild(teamImg);
+            teamDiv.appendChild(teamCard);
 
         } )
     })
