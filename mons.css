@@ -1,4 +1,4 @@
-  html {
+   html {
     background-image: url("https://i.pinimg.com/originals/f4/59/98/f459980b6a50cbfb897a7299ca86dab0.gif");
     background-repeat: repeat;
     background-size: 25%;
@@ -11,8 +11,6 @@
   }
 
   #team {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: larger;
     border-radius: 30px;
     margin: auto;
     text-align: center;
@@ -122,4 +120,21 @@
   .teamster {
     width: 150px;
     height: 150px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  #title {
+    text-align: center;
+    background-color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    height: 50px;
+    width: 100%;
+    border: 0px;
+    padding: 0px;
+  }
+
+  p {
+    margin: 0px;
   }
