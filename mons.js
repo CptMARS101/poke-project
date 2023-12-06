@@ -77,7 +77,12 @@ const renderDisplay = mon => {
     .then(data => {
         console.log(data)
         monDisplay.name.textContent = data.name.toUpperCase();
-        monDisplay.img.src = data.sprites.front_default
+        monDisplay.img.src = data.sprites.front_default;
+        let addButton = document.createElement("button");
+        addButton.placeholder = "+";
+        addButton.addEventListener("click", () => {
+
+        } )
     })
 }
 
@@ -124,3 +129,4 @@ searchForm.addEventListener('submit', (e) => {
          renderStats(found);
          renderMoves(found);
     })
+
