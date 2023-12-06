@@ -1,12 +1,13 @@
-html {
-    background-image: url("https://live.staticflickr.com/65535/49058055381_5ac611f040_c.jpg"), url("https://i.pinimg.com/originals/f4/59/98/f459980b6a50cbfb897a7299ca86dab0.gif");
-    background-repeat: no-repeat, repeat;
-    background-size: 50%, 40%;
-    background-position-x: center, center;
+  html {
+    background-image: url("https://i.pinimg.com/originals/f4/59/98/f459980b6a50cbfb897a7299ca86dab0.gif");
+    background-repeat: repeat;
+    background-size: 25%;
+    width: 100%;
   }
 
   body {
-    vertical-align: auto;
+    width: 100%;
+    height: 100%;
   }
 
   #team {
@@ -16,7 +17,7 @@ html {
     text-align: center;
     background-color: aqua;
     height: 100px;
-    width: 900px;
+    width: 100%;
   }
 
 @font-face {
@@ -25,12 +26,14 @@ html {
 }
 
   #dex-list {
+    background-position-x: center;
+    vertical-align: top;
     text-align: center;
     font-family: digital-7-font;
     font-size: xx-large;
+    margin-top: 50%;
     margin: auto;
-    margin-top: 140px;
-    width: 550px;
+    width: 85%;
     height: 350px;
     border-radius: 25px;
     background-color: chartreuse;
@@ -38,12 +41,14 @@ html {
   }
 
   #display {
-    width: 220px;
-    height: 220px;
+    width: 50%;
+    max-width: 200px;
+    min-width: 150px;
+    height: 200px;
     margin: auto;
     background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3loZnc3emVzaXJ6YnJqeWw4ajMxYm03YjU2dzR3azJqdDM0djJnZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JetkGHNkWrSjKeBNub/giphy.gif');
     background-repeat: no-repeat;
-    border-radius: 10px;
+    border-radius: 5px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     font-size: 20px;
@@ -56,7 +61,7 @@ html {
   }
 
   #stat-display {
-    width: 300px;
+    width: 100%;
     height: 400px;
     text-align: center;
     vertical-align: text-top;
@@ -69,25 +74,48 @@ html {
   }
 
   #moves-list {
-    text-align: center;
-    width: 250px;
+    text-align: left;
+    width: 100%;
     overflow: scroll;
   }
 
+  #table {
+    position: fixed;
+    width: 100%;
+  }
+
+  #left-td {
+    width: 25%;
+    text-align: center;
+  }
+
   #center-td {
+    width: 50%;
+    text-align: center;
+    background-image: url("https://live.staticflickr.com/65535/49058055381_5ac611f040_c.jpg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 100%;
+    bac
+  }
+
+  #right-td {
+    width: 25%;
     text-align: center;
   }
 
   #moves-div {
-    width: 250px;
+    width: 100%;
     height: 500px;
     font-family: digital-7-font;
     font-size:x-large;
+    overflow: scroll;
+    vertical-align: text-top;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    overflow: scroll;
   }
 
   #right-td {
