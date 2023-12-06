@@ -28,20 +28,18 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 .then(mons =>  {
     //mons just exists inside of fetch request. saving mons data to pokemon array for global access. 
     //can be editted/worked with more easily
-    //pokemons = mons
    // console.log(mons.results);
     pkmn = mons.results;
     refreshDex(pkmn)
     monDisplay.img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png"
 })
 
-//add pkmn to team span
-
+//add pkmn to team bar
 const addButton = document.querySelector("#add-button");
 addButton.addEventListener("click", mon => {
-    console.log(mon);
+    //console.log(mon);
        teamImg = document.createElement('img');
-       console.log(monData)
+       //console.log(monData)
         teamImg.src = monData.sprites.front_default;
         teamImg.id = `${monData.name}`;
         teamImg.className = "teamster";
@@ -157,6 +155,8 @@ searchForm.addEventListener('submit', (e) => {
         if (e.target.tagName === "IMG") {
           const clickedMonName = e.target.id;
           const clickedMonData = pkmn.find(mon => mon.name === clickedMonName);
+          console.log(clickedMonName);
+          console.log(clickedMonData);
           movesList.innerHTML = '';
           renderDisplay(clickedMonData);
           renderStats(clickedMonData);
