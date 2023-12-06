@@ -99,12 +99,94 @@ const renderDisplay = mon => {
     .then(res => res.json())
     .then(data => {
         monData = data
-        //console.log(data)
+        console.log(monData)
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default;
-        monDisplay.type1.textContent = data.types[0].type.name
-        monDisplay.type2.textContent = data.types[1].type.name
-        console.log(data.types)
+        const type1Span = document.querySelector('#type1');
+        const type2Span = document.querySelector('#type2');
+        monDisplay.type1.textContent = ""
+        monDisplay.type2.textContent = ""
+        monDisplay.type1.textContent = data.types[0].type.name.toUpperCase();
+        monDisplay.type2.textContent = data.types[1].type.name.toUpperCase();
+        if (type1Span.textContent === "FIRE") {
+            type1Span.style.backgroundColor = "red"
+        } else if (type1Span.textContent === "GRASS") {
+            type1Span.style.backgroundColor = "green"
+        } else if (type1Span.textContent === "WATER") {
+            type1Span.style.backgroundColor = "blue"
+        } else if (type1Span.textContent === "ELECTRIC") {
+            type1Span.style.backgroundColor = "#FFFF00"
+        } else if (type1Span.textContent === "PSYCHIC") {
+            type1Span.style.backgroundColor = "purple"
+        } else if (type1Span.textContent === "STEEL") {
+            type1Span.style.backgroundColor = "gray"
+        } else if (type1Span.textContent === "ROCK") {
+            type1Span.style.backgroundColor = "brown"
+        } else if (type1Span.textContent === "POISON") {
+            type1Span.style.backgroundColor = "purple"
+        } else if (type1Span.textContent === "NORMAL") {
+            type1Span.style.backgroundColor = "white"
+        } else if (type1Span.textContent === "ICE") {
+            type1Span.style.backgroundColor = "blue"
+        } else if (type1Span.textContent === "GROUND") {
+            type1Span.style.backgroundColor = "brown"
+        } else if (type1Span.textContent === "GHOST") {
+            type1Span.style.backgroundColor = "purple"
+        } else if (type1Span.textContent === "FLYING") {
+            type1Span.style.backgroundColor = "white"
+        } else if (type1Span.textContent === "FIGHTING") {
+            type1Span.style.backgroundColor = "brown"
+        } else if (type1Span.textContent === "FAIRY") {
+            type1Span.style.backgroundColor = "pink"
+        } else if (type1Span.textContent === "DRAGON") {
+            type1Span.style.backgroundColor = "blue"
+        } else if (type1Span.textContent === "DARK") {
+            type1Span.style.backgroundColor = "black"
+        } else if (type1Span.textContent === "BUG") {
+            type1Span.style.backgroundColor = "chartreuse"
+        } else if (type21Span.textContent === "") {
+            type1Span.style.backgroundColor = "transparent"
+        }
+
+        if (type2Span.textContent === "FIRE") {
+            type2Span.style.backgroundColor = "red"
+        } else if (type2Span.textContent === "GRASS") {
+            type2Span.style.backgroundColor = "green"
+        } else if (type2Span.textContent === "WATER") {
+            type2Span.style.backgroundColor = "blue"
+        } else if (type2Span.textContent === "ELECTRIC") {
+            type2Span.style.backgroundColor = "#FFFF00"
+        } else if (type2Span.textContent === "PSYCHIC") {
+            type2Span.style.backgroundColor = "purple"
+        } else if (type2Span.textContent === "STEEL") {
+            type2Span.style.backgroundColor = "gray"
+        } else if (type2Span.textContent === "ROCK") {
+            type2Span.style.backgroundColor = "brown"
+        } else if (type2Span.textContent === "POISON") {
+            type2Span.style.backgroundColor = "purple"
+        } else if (type2Span.textContent === "NORMAL") {
+            type2Span.style.backgroundColor = "white"
+        } else if (type2Span.textContent === "ICE") {
+            type2Span.style.backgroundColor = "blue"
+        } else if (type2Span.textContent === "GROUND") {
+            type2Span.style.backgroundColor = "brown"
+        } else if (type2Span.textContent === "GHOST") {
+            type2Span.style.backgroundColor = "purple"
+        } else if (type2Span.textContent === "FLYING") {
+            type2Span.style.backgroundColor = "white"
+        } else if (type2Span.textContent === "FIGHTING") {
+            type2Span.style.backgroundColor = "brown"
+        } else if (type2Span.textContent === "FAIRY") {
+            type2Span.style.backgroundColor = "pink"
+        } else if (type2Span.textContent === "DRAGON") {
+            type2Span.style.backgroundColor = "blue"
+        } else if (type2Span.textContent === "DARK") {
+            type2Span.style.backgroundColor = "black"
+        } else if (type2Span.textContent === "BUG") {
+            type2Span.style.backgroundColor = "chartreuse"
+        } else if (type2Span.textContent === "") {
+            type2Span.style.backgroundColor = "transparent"
+        }
     })
 }
 
