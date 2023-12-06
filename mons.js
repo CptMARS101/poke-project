@@ -30,8 +30,9 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     console.log(mons.results);
     pkmn = mons.results;
     refreshDex(pkmn)
-    renderDisplay(pkmn[0])
+    monDisplay.img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png"
 })
+
 
 //this function creates a line for a << given >> pokemon in the dex-list
 const dexLine = mon => {
@@ -80,10 +81,8 @@ const renderDisplay = mon => {
         console.log(data)
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default;
-        const addButton = document.createElement('button');
-        addButton.id = 'add-button';
-        addButton.textContent = "+";
-        cardDisplay.appendChild(addButton);
+        const addButton = document.querySelector("#add-button")
+        const removeButton = document.querySelector("#remove-button")
         addButton.addEventListener("click", () => {
             let teamCard = document.createElement('span');
             let teamImg = document.createElement('img');
