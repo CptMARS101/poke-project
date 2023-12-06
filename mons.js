@@ -15,12 +15,13 @@ const statDisplay = {
     sa: document.querySelector('#sa'),
     sd: document.querySelector('#sd'),
     sp: document.querySelector('#sp')
-}
-
+};
 const movesList = document.querySelector('#moves-list');
 const statDiv = document.querySelector('#stat-display');
 const teamDiv = document.querySelector('#team-td');
 const cardDisplay = document.querySelector('#display');
+const teamImgElement = document.querySelector('.teamster');
+let teamImg
 
 fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 .then(res => res.json())
@@ -39,22 +40,15 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 const addButton = document.querySelector("#add-button");
 addButton.addEventListener("click", mon => {
     console.log(mon);
-       let teamImg = document.createElement('img');
+       teamImg = document.createElement('img');
        console.log(monData)
         teamImg.src = monData.sprites.front_default;
         teamImg.id = `${monData.name}`;
-         //event listener to team img
-        //on click of the monListElement, the mon details are displayed 
+        teamImg.className = "teamster";
         teamDiv.appendChild(teamImg);
+    });
 
-        ///TEAM IMG EVENT BROKEN
-        teamImg.addEventListener("click", () => {
-            movesList.innerHTML = '';
-            renderDisplay(monData);
-            renderStats(monData);
-            renderMoves(monData);
-        })
-    } )
+
 const remButton = document.querySelector('#remove-button');
 remButton.addEventListener("click", () => {
     document.getElementById(`${monData.name}`).remove();
@@ -118,12 +112,12 @@ const renderStats = mon => {
     .then(res => res.json())
     .then(data => {
        // console.log(data.moves);
-        statDisplay.hp.textContent = `HP:` + data.stats[0].base_stat;
-        statDisplay.attk.textContent = `ATTACK:` + data.stats[1].base_stat;
-        statDisplay.def.textContent = `DEFENSE:` + data.stats[2].base_stat;
-        statDisplay.sa.textContent = `Sp ATTACK:` + data.stats[3].base_stat;
-        statDisplay.sd.textContent = `Sp DEFENSE:` + data.stats[4].base_stat;
-        statDisplay.sp.textContent = `SPEED:` + data.stats[5].base_stat;  
+        statDisplay.hp.textContent = `HP:  ` + data.stats[0].base_stat;
+        statDisplay.attk.textContent = `ATTACK:  ` + data.stats[1].base_stat;
+        statDisplay.def.textContent = `DEFENSE:  ` + data.stats[2].base_stat;
+        statDisplay.sa.textContent = `Sp ATTACK:  ` + data.stats[3].base_stat;
+        statDisplay.sd.textContent = `Sp DEFENSE:  ` + data.stats[4].base_stat;
+        statDisplay.sp.textContent = `SPEED:  ` + data.stats[5].base_stat;  
     })
         statDiv.style.backgroundColor = 'chartreuse';
         movesList.style.backgroundColor= 'chartreuse';
@@ -155,5 +149,17 @@ searchForm.addEventListener('submit', (e) => {
          renderDisplay(found);
          renderStats(found);
          renderMoves(found);
-    })
+    });
 
+    //add event listener to team div instead of img as imgs arent created on load
+    //click team member img to reload UI
+    teamDiv.addEventListener("click", (e) => {
+        if (e.target.tagName === "IMG") {
+          const clickedMonName = e.target.id;
+          const clickedMonData = pkmn.find(mon => mon.name === clickedMonName);
+          movesList.innerHTML = '';
+          renderDisplay(clickedMonData);
+          renderStats(clickedMonData);
+          renderMoves(clickedMonData);
+        }
+      });
