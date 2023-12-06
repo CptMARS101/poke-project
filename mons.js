@@ -81,6 +81,8 @@ const renderDisplay = mon => {
         console.log(data)
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default;
+        monDisplay.type1.textContent = data.types[0].type.name
+        console.log(data.types[0].type.name)
         const addButton = document.querySelector("#add-button")
         const removeButton = document.querySelector("#remove-button")
         addButton.addEventListener("click", () => {
@@ -99,7 +101,6 @@ const renderStats = mon => {
     fetch(mon.url)
     .then(res => res.json())
     .then(data => {
-        console.log(data.moves);
         statDisplay.hp.textContent = `HP:` + data.stats[0].base_stat;
         statDisplay.attk.textContent = `ATTACK:` + data.stats[1].base_stat;
         statDisplay.def.textContent = `DEFENSE:` + data.stats[2].base_stat;
