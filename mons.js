@@ -1,4 +1,5 @@
 let pkmn = []
+let monData = []
 const monList = document.querySelector('#dex-list')
 //an object of all the elements of the monDisplay, for quick reference in the 'renderDisplay' function
 const monDisplay = {
@@ -32,6 +33,17 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     refreshDex(pkmn)
     monDisplay.img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png"
 })
+
+//add pkmn to team span
+const addButton = document.querySelector("#add-button")
+addButton.addEventListener("click", mon => {
+    console.log(mon);
+        let teamImg = document.createElement('img');
+        teamImg.src = monData.sprites.front_default;
+        teamImg.id = 'team-img';
+        teamDiv.appendChild(teamImg);
+    } )
+
 
 
 //this function creates a line for a << given >> pokemon in the dex-list
@@ -74,24 +86,14 @@ function removeAllChildren(parentElement) {
 //function that renders display details of the mon that was clicked on from the dex-list
 //does so by populating the monDisplay object above 
 const renderDisplay = mon => {
-    console.log(mon)
+   // console.log(mon)
     fetch(mon.url)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        monData = data
+        //console.log(data)
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default;
-        const addButton = document.querySelector("#add-button")
-        const removeButton = document.querySelector("#remove-button")
-        addButton.addEventListener("click", () => {
-            let teamCard = document.createElement('span');
-            let teamImg = document.createElement('img');
-            teamImg.src = data.sprites.front_default;
-            teamImg.id = 'team-img';
-            teamCard.appendChild(teamImg);
-            teamDiv.appendChild(teamCard);
-
-        } )
     })
 }
 
@@ -99,7 +101,7 @@ const renderStats = mon => {
     fetch(mon.url)
     .then(res => res.json())
     .then(data => {
-        console.log(data.moves);
+       // console.log(data.moves);
         statDisplay.hp.textContent = `HP:` + data.stats[0].base_stat;
         statDisplay.attk.textContent = `ATTACK:` + data.stats[1].base_stat;
         statDisplay.def.textContent = `DEFENSE:` + data.stats[2].base_stat;
@@ -116,7 +118,7 @@ const renderMoves = mon => {
     .then(res => res.json())
     .then(data => {
         data.moves.forEach(moveData => {
-            console.log(moveData);
+           // console.log(moveData);
             movesList.style.backgroundColor= 'chartreuse';
             const moveLi = document.createElement('li');
             moveLi.textContent = moveData.move.name;
