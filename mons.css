@@ -91,6 +91,11 @@
   #table {
     position: fixed;
     width: 100%;
+    background-image: url("https://live.staticflickr.com/65535/49058055381_5ac611f040_c.jpg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 50%;
   }
 
   #left-td {
@@ -101,11 +106,6 @@
   #center-td {
     width: 50%;
     text-align: center;
-    background-image: url("https://live.staticflickr.com/65535/49058055381_5ac611f040_c.jpg");
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: center;
-    background-size: 100%;
   }
 
   #right-td {
