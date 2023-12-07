@@ -1,5 +1,6 @@
 let pkmn = []
 let monData = []
+let team = []
 const monList = document.querySelector('#dex-list')
 //an object of all the elements of the monDisplay, for quick reference in the 'renderDisplay' function
 const monDisplay = {
@@ -246,3 +247,15 @@ searchForm.addEventListener('submit', (e) => {
           renderMoves(clickedMonData);
         }
       });
+
+// const addToTeam = mon => {
+//     team.push(mon)
+// }
+
+// const removeFromTeam = mon => {
+//     team.forEach(mate => {
+//         if (mon == mate){
+//             team.
+//         }
+//     })
+// }
