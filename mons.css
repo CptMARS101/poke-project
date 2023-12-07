@@ -11,8 +11,6 @@
   }
 
   #team {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: larger;
     border-radius: 30px;
     margin: auto;
     text-align: center;
@@ -93,6 +91,11 @@
   #table {
     position: fixed;
     width: 100%;
+    background-image: url("https://live.staticflickr.com/65535/49058055381_5ac611f040_c.jpg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 50%;
   }
 
   #left-td {
@@ -103,11 +106,6 @@
   #center-td {
     width: 50%;
     text-align: center;
-    background-image: url("https://live.staticflickr.com/65535/49058055381_5ac611f040_c.jpg");
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: center;
-    background-size: 100%;
   }
 
   #right-td {
@@ -122,4 +120,29 @@
   .teamster {
     width: 150px;
     height: 150px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  #title {
+    text-align: center;
+    background-color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    height: 50px;
+    width: 100%;
+    border: 0px;
+    padding: 0px;
+  }
+
+  p {
+    margin: 0px;
+  }
+
+  #type1 {
+    border-radius: 5px;
+  }
+
+  #type2 {
+    border-radius: 5px;
   }

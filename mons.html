@@ -7,12 +7,13 @@
         <script defer type="text/javascript" src="./mons.js"></script>
     </head>
     <header>
+        <div id="title">
+            <p>POKEMON TEAM</p>
+        </div>
         <div id="team">
-            <p>Your Team of 6</p>
             <table>
                 <tr>
                     <td id="team-td">
-
                     </td>
                 </tr>
             </table> 
@@ -25,15 +26,15 @@
                  <div id="stat-display">
                     <span id="hp" name="hp"></span>
                     <br>
-                  <span id="attk" name="attk"></span>
-                  <br>
-                  <span id="def" name="def"></span>
-                  <br>
-                  <span id="sa" name="sa"></span>
-                  <br>
-                  <span id="sd" name="sd"></span>
-                  <br>
-                  <span id="sp" name="sp"></span>
+                    <span id="attk" name="attk"></span>
+                     <br>
+                    <span id="def" name="def"></span>
+                     <br>
+                     <span id="sa" name="sa"></span>
+                     <br>
+                     <span id="sd" name="sd"></span>
+                     <br>
+                     <span id="sp" name="sp"></span>
              </div>
             </td>
             <td id="center-td">
@@ -42,25 +43,26 @@
         <div class="card" id="display">
             <span id="name" name = "name"></span>
             <img id="image" src ="image">
-            <span id="type1" name="type1"></span>
-            <span id="type2" name="type2"></span>
-            <br>
+            <p id="type1" name="type1"></p>
+            <p id="type2" name="type2"></p>
             <button id="add-button">+</button>
             <button id="remove-button">-</button>
         </div>
-        <br>
-        <br>
-        <form id="poke-form">
-            <input type="search" placeholder="poke search" id="poke-search" name="poke-search"/>
-            <input type="submit" value="search"/>
-        </form>
     </td>
             <td id="right-td">
                 <ul id="moves-list" name="moves-list">
-
                 </ul>
-
             </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div id="form-div">
+                        <form id="poke-form">
+                               <input type="search" placeholder="poke search" id="poke-search" name="poke-search"/>
+                               <input type="submit" value="search"/>
+                           </form>
+                       </div>
+                </td>
             </tr>
         </table>
     </body>
