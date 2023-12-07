@@ -165,7 +165,7 @@ const renderDisplay = mon => {
             },
             {
                 "name": "DRAGON",
-                "color": "#00080"
+                "color": "#314e82"
             },
             {
                 "name": "DARK",
