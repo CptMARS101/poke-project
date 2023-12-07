@@ -99,24 +99,30 @@ const renderDisplay = mon => {
     .then(res => res.json())
     .then(data => {
         monData = data
-        console.log(monData)
+        //console.log(monData)
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default;
-        const type1Span = document.querySelector('#type1');
-        const type2Span = document.querySelector('#type2');
+       // const type1Span = document.querySelector('#type1');
+       // const type2Span = document.querySelector('#type2');
+        //monDisplay.type1.textContent = ""
+       // monDisplay.type2.textContent = ""
+       console.log(data.types[0]);
+       console.log(data.types[1]);
         monDisplay.type1.textContent = data.types[0].type.name.toUpperCase()
-        monDisplay.type2.textContent = data.types[1].type.name.toUpperCase()
-       /*    type bg colors still weird when a mon has no 2nd type
-        if (data.types == false) {
-           monDisplay.type2.textContent = ""} else if (data.types[1] == true )
-        {monDisplay.type2.textContent = data.types[1].type.name.toUpperCase()
-        };
-        */
-        console.log(type2Span.textContent)
+        monDisplay.type2.textContent = data.types[1].type.name.toUpperCase();
+        
+        /*
+        if (data.types[1] === true) {
+            monDisplay.type2.textContent = data.types[1].type.name.toUpperCase();
+            } else if (data.types[1] === undefined)
+         {
+            monDisplay.type2.textContent = "n/a"
+         }; */
+        //console.log(type2Span.textContent)
 
         //typing/color array
-        let typeIn1 = type1Span.textContent;
-        let typeIn2 = type2Span.textContent;
+        let typeIn1 = monDisplay.type1.textContent;
+        let typeIn2 = monDisplay.type2.textContent;
 
         const typeArray = [
             {
@@ -194,10 +200,10 @@ const renderDisplay = mon => {
         ]
     //Searching the type array for the name/color
     let foundType1 = typeArray.find(type => type.name === typeIn1);
-    type1Span.style.backgroundColor = foundType1.color;
+    monDisplay.type1.style.backgroundColor = foundType1.color;
     console.log(foundType1)
     let foundType2 = typeArray.find(type => type.name === typeIn2);
-    type2Span.style.backgroundColor = foundType2.color
+    monDisplay.type2.style.backgroundColor = foundType2.color
     console.log(foundType2)
     /*  trying to fix 2nd typing issues
     if (foundType2 == true) { 
