@@ -12,7 +12,7 @@
 
   #team {
     border-radius: 30px;
-    margin: auto;
+    align-content: center;
     text-align: center;
     background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3loZnc3emVzaXJ6YnJqeWw4ajMxYm03YjU2dzR3azJqdDM0djJnZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JetkGHNkWrSjKeBNub/giphy.gif');
     background-repeat: no-repeat;
