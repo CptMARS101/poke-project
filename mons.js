@@ -22,7 +22,6 @@ const teamDiv = document.querySelector('#team-td');
 const cardDisplay = document.querySelector('#display');
 const teamImgElement = document.querySelector('.teamster');
 let teamImg
-
 fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
 .then(res => res.json())
 .then(mons =>  {
@@ -33,7 +32,6 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     refreshDex(pkmn)
     monDisplay.img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png"
 })
-
 //add pkmn to team bar
 const addButton = document.querySelector("#add-button");
 addButton.addEventListener("click", mon => {
@@ -45,15 +43,10 @@ addButton.addEventListener("click", mon => {
         teamImg.className = "teamster";
         teamDiv.appendChild(teamImg);
     });
-
-
 const remButton = document.querySelector('#remove-button');
 remButton.addEventListener("click", () => {
     document.getElementById(`${monData.name}`).remove();
 })
-
-
-
 //this function creates a line for a << given >> pokemon in the dex-list
 const dexLine = mon => {
     const monListElement = document.createElement('li');
@@ -73,7 +66,6 @@ const dexLine = mon => {
     })
     monList.appendChild(monListElement);
 }
-
 //creates a dex-line for << each >> pokemon 
 const refreshDex = () => {
     //this clears old data/children
@@ -83,14 +75,12 @@ const refreshDex = () => {
     //and makes a monList element only for those mons 
     pkmn.forEach(mon => dexLine(mon))
 }
-
 //when parentElement [monList] has any children [monListElement], remove children from the parentElement
 function removeAllChildren(parentElement) {
     while (parentElement.firstChild) {
       parentElement.removeChild(parentElement.firstChild);
     }
   }
-
 //function that renders display details of the mon that was clicked on from the dex-list
 //does so by populating the monDisplay object above 
 const renderDisplay = mon => {
@@ -102,28 +92,16 @@ const renderDisplay = mon => {
         //console.log(monData)
         monDisplay.name.textContent = data.name.toUpperCase();
         monDisplay.img.src = data.sprites.front_default;
-       // const type1Span = document.querySelector('#type1');
-       // const type2Span = document.querySelector('#type2');
-        //monDisplay.type1.textContent = ""
-       // monDisplay.type2.textContent = ""
        console.log(data.types[0]);
        console.log(data.types[1]);
         monDisplay.type1.textContent = data.types[0].type.name.toUpperCase()
-        monDisplay.type2.textContent = data.types[1].type.name.toUpperCase();
-        
-        /*
-        if (data.types[1] === true) {
-            monDisplay.type2.textContent = data.types[1].type.name.toUpperCase();
-            } else if (data.types[1] === undefined)
+        //typeIn2 = data.types[1].type.name.toUpperCase();
+        if (data.types[1] === undefined)
          {
-            monDisplay.type2.textContent = "n/a"
-         }; */
-        //console.log(type2Span.textContent)
-
-        //typing/color array
-        let typeIn1 = monDisplay.type1.textContent;
-        let typeIn2 = monDisplay.type2.textContent;
-
+            monDisplay.type2.textContent = "---";
+         } else {
+            monDisplay.type2.textContent = data.types[1].type.name.toUpperCase();
+         }; 
         const typeArray = [
             {
                 "name": "FIRE",
@@ -196,24 +174,23 @@ const renderDisplay = mon => {
             {
                 "name": "BUG",
                 "color": "chartreuse"
+            },
+            {
+                "name": "---",
+                "color": "red"
             }
         ]
     //Searching the type array for the name/color
+    let typeIn1 = monDisplay.type1.textContent;
+    let typeIn2 = monDisplay.type2.textContent;
     let foundType1 = typeArray.find(type => type.name === typeIn1);
     monDisplay.type1.style.backgroundColor = foundType1.color;
     console.log(foundType1)
     let foundType2 = typeArray.find(type => type.name === typeIn2);
-    monDisplay.type2.style.backgroundColor = foundType2.color
-    console.log(foundType2)
-    /*  trying to fix 2nd typing issues
-    if (foundType2 == true) { 
-        type2Span.style.backgroundColor = foundType2.color;
-    }else if (foundType2 === undefined) {
-        type2Span.style.backgroundColor = "transparent"};
-        */
+    monDisplay.type2.style.backgroundColor = foundType2.color;
+    console.log(foundType2)        
     })
 }
-
 const renderStats = mon => {
     fetch(mon.url)
     .then(res => res.json())
@@ -229,7 +206,6 @@ const renderStats = mon => {
         statDiv.style.backgroundColor = 'chartreuse';
         movesList.style.backgroundColor= 'chartreuse';
 }
-
 const renderMoves = mon => {
     fetch(mon.url)
     .then(res => res.json())
@@ -243,7 +219,6 @@ const renderMoves = mon => {
         })
     })
 }
-
 const searchForm = document.querySelector('#poke-form');
 //Form Submission
 searchForm.addEventListener('submit', (e) => {
@@ -257,7 +232,6 @@ searchForm.addEventListener('submit', (e) => {
          renderStats(found);
          renderMoves(found);
     });
-
     //add event listener to team div instead of img as imgs arent created on load
     //click team member img to reload UI
     teamDiv.addEventListener("click", (e) => {
